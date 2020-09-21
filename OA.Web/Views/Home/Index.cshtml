@@ -1,0 +1,44 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<OA.Domain.Core.Entitys.tbExpertizy>
+
+<div id="allviewResult">
+    <div class="row">
+        @{int i = 1; }
+        @{char slash = '/'; }
+        @foreach (var item in Model)
+        {
+
+            if (item.N2.ToString() == String.Empty && item.N3.ToString() == String.Empty) { slash = ' '; }
+
+            else { slash = '/'; }
+
+            <div class="col-md-12">
+                <div class="card d-flex">
+                    <div class="card-body" style=" display: inherit; padding: 12px;">
+                        <h5 class="card-title"> <a id="@i" class="expertiseNumber"> @Html.DisplayFor(modelItem => item.N1) @slash @Html.DisplayFor(modelItem => item.N2) @slash @Html.DisplayFor(modelItem => item.N3)</a></h5>
+                        <div class="col-md-10">@Html.DisplayFor(modelItem => item.mTitleDoc)</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            i++;
+        }
+    </div>
+    @if (Model.Count > 0)
+    {
+        <div class="text-center ml-2">
+            <div class="small">
+                Сторінка @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) з @Model.PageCount
+            </div>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "indexContainer" }))
+        </div>
+    }
+    @if (Model.Count == 0)
+    {
+        <div>
+            <h3 class="text-danger text-center">За даними параметрами нічого знайдено не було...</h3>
+        </div>
+    }
+</div>

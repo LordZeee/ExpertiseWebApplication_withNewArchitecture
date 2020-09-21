@@ -1,0 +1,66 @@
+﻿@model OA.Web.Models.SingInModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Вхід - БД Експертизи</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link rel="icon" href="@Url.Content("~/Content/images/favicon.ico")" />
+</head>
+<body>
+    <div id="top-menu" class="navbar navbar-light fixed-top">
+        <div id="top-menu-sidebar" class="collapsed"><i class="fa fa-th"></i></div>
+        <div class="row titleBlock">
+            <div id="top-menu-content" style="display: block;">
+                <div class="top-menu-content-item">
+                    <span style="margin-right: 5px;">
+                        <img src="~/Content/images/Logo_ukr_white.png" width="84px" />
+                    </span>
+                    <span id="db-expertise">БД Експертизи</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-inline" id="login-menu-user">
+            <ul class="nav">
+                <li class="nav-item" id="user-info" title="@Session["currentUser"]">
+                    <i class="fa fa-user"></i> <span class="user-name">@Session["currentUser"]</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" style="position:relative; top:100px;">
+        <div class="col-12">
+            <div class="container">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-group">
+                        <div>
+                            <h2 class="col"> Вхід в систему</h2>
+                        </div>
+                        @Html.ValidationSummary("", new { @class = "alert-danger" })
+
+                        <div class="form-group col-md-4">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Логін" } })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Пароль" } })
+                        </div>
+                        <div class="form-group col">
+                            <input type="submit" value="Увійти" class="btn btn-success" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
