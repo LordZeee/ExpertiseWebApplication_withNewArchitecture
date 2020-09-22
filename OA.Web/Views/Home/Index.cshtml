@@ -1,5 +1,25 @@
 ﻿@using PagedList.Mvc
-@model PagedList.IPagedList<OA.Domain.Core.Entitys.tbExpertizy>
+@model PagedList.IPagedList <OA.Domain.Core.Entitys.tbExpertizy>
+
+
+<div> class="col-12">
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Звіти <i class="fa fa-angle-down"></i></a>
+        <div class="dropdown-menu header-menu-dropdown">
+            <a class="dropdown-item" href="@Url.Action("Operator1Reports", "Reports")">Звіти Оператора 1</a>
+            <a class="dropdown-item" href="@Url.Action("Operator2Reports", "Reports")">Звіти Оператора 2</a>
+            <a class="dropdown-item" href="@Url.Action("ControlerReports", "Reports")">Звіти Контролера</a>
+            <a class="dropdown-item" href="@Url.Action("ManagerReports", "Reports")">Звіти Керівника</a>
+        </div>
+    </div>
+</div>
+
+@{
+    ViewBag.Title = "Головна";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/PagedList.css")" rel="stylesheet" type="text/css" />
 
 <div id="allviewResult">
     <div class="row">
@@ -26,6 +46,9 @@
             i++;
         }
     </div>
+    <div id="indexContainer" style="margin-top:3px">
+        @{Html.RenderAction("AllExpertisesView", "Expertise");}
+</div>
     @if (Model.Count > 0)
     {
         <div class="text-center ml-2">

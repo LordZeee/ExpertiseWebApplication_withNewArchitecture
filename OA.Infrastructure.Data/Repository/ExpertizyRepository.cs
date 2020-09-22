@@ -5,7 +5,7 @@ using OA.Infrastructure.Data.DbContext;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace OA.Infrastructure.Data
+namespace OA.Infrastructure.Data.Repository
 {
     public class ExpertizyRepository : IRepository<tbExpertizy>
     {

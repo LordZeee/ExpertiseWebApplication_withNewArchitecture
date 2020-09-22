@@ -53,7 +53,19 @@
   <ItemGroup>
     <Compile Include="DbContext\ExpertContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\tbNapravlenieERRepository.cs" />
     <Compile Include="Repository\ExpertizyRepository.cs" />
+    <Compile Include="Repository\tbIndexVDRepository.cs" />
+    <Compile Include="Repository\tbIspolnitelRepository.cs" />
+    <Compile Include="Repository\tbOrganizatsiyaRepository.cs" />
+    <Compile Include="Repository\tbOtdelenieRepository.cs" />
+    <Compile Include="Repository\tbRamDogovorRepository.cs" />
+    <Compile Include="Repository\tbSoispolniteliRepository.cs" />
+    <Compile Include="Repository\tbStatusDRepository.cs" />
+    <Compile Include="Repository\tbStatusERepository.cs" />
+    <Compile Include="Repository\tbTipDogovoraRepository.cs" />
+    <Compile Include="Repository\tbVidERRepository.cs" />
+    <Compile Include="Repository\tbVidRSRepository.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
